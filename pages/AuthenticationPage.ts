@@ -2,7 +2,6 @@ import {Locator, Page} from "@playwright/test";
 import {BasePage} from "./BasePage";
 
 export class AuthenticationPage extends BasePage {
-
     readonly page: Page
     readonly emailInput: Locator
     readonly passwordInput: Locator
