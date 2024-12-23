@@ -23,5 +23,7 @@
       "^.+\\.ts$": "ts-jest"
     }
   },
-  "type": "module"
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }
