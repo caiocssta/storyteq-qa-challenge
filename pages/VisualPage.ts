@@ -28,6 +28,7 @@ export class VisualPage extends BasePage {
         await this.page.goto('/visual')
     }
 
+    // Get gif first frame and then replace with it
     async freezeGifOnFirstFrame () {
         await this.page.evaluate((selector) => {
             const gif = document.querySelector<HTMLImageElement>(selector);
@@ -38,20 +39,22 @@ export class VisualPage extends BasePage {
                     canvas.width = gif.width;
                     canvas.height = gif.height;
                     const img = new Image();
-                    img.src = gif.src;
+                    img.src = gif.src; // freeze gif
                     img.onload = () => {
                         context.drawImage(img, 0, 0, gif.width, gif.height);
-                        gif.replaceWith(canvas); // Replace GIF with canvas
+                        gif.replaceWith(canvas); // replace GIF with canvas
                     };
                 }
             }
-        }, this.dynamicGifSelector);
+        }, this.dynamicGifSelector)
     }
 
+    // Take page screenshot
     async takePageScreenshot () {
         return await this.page.screenshot({path: tempScreenshotPath});
     }
 
+    // Compare new screenshot with the existing
     async compareScreenshot () {
         // Load the new and baseline screenshots
         const newScreenshot = fs.readFileSync(tempScreenshotPath);
