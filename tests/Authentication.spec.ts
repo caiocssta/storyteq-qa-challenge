@@ -25,6 +25,3 @@ test.describe('Validate log in functionality', async () => {
         expect(await authPage.isErrorMessageVisible()).toBeTruthy()
     })
 })
-
-
-
