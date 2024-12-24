@@ -1,5 +1,6 @@
 {
   "name": "storyteq-qa-challenge",
+  "author": "Caio Costa",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
